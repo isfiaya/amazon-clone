@@ -3,10 +3,16 @@ import "./Header.scss";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import { useStateValue } from "./StateProvider";
-
+import { auth } from "./firebase";
 function Header() {
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ basket, user }, dispatch] = useStateValue();
   console.log(basket);
+
+  const handelAthentication = () => {
+    if (user) {
+      auth.signOut();
+    }
+  };
 
   return (
     <div className="header">
@@ -21,12 +27,12 @@ function Header() {
       </div>
       <div className="links">
         <div className="links__children">
-          <div>
-            <p className="up">Hello</p>
-            <Link to="/login">
-              <p className="down">Sign up</p>
-            </Link>
-          </div>
+          <Link to={!user && "/login"}>
+            <div onClick={handelAthentication}>
+              <p className="up">Hello {user ? user.email : "Guest"}</p>
+              <p className="down">{user ? "Sign Out" : "Sign in"}</p>
+            </div>
+          </Link>
           <div>
             <p className="up">Returns</p>
             <p className="down">& Orders</p>

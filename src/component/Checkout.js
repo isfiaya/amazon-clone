@@ -1,33 +1,42 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import "./Checkout.scss";
 import ItemInBasket from "./ItemInBasket";
 import { getBasketTotal } from "./reducer";
 import { useStateValue } from "./StateProvider";
 
-
 function Checkout() {
-  const [{ basket }, dispatch] = useStateValue()
+  const [{ basket, user }, dispatch] = useStateValue();
+  const history = useHistory();
   return (
     <div className="checkout">
       <div className="checkout__left">
         <div className="checkout__title">
+          <h4>Hello {user?.email}</h4>
           <h1>Your Shopping Basket</h1>
-
         </div>
-        {basket.map(el => (
-          <ItemInBasket image={el.image} title={el.title} price={el.price} rating={el.rating} id={el.id} />
+        {basket.map((el) => (
+          <ItemInBasket
+            image={el.image}
+            title={el.title}
+            price={el.price}
+            rating={el.rating}
+            id={el.id}
+          />
         ))}
-
       </div>
       <div className="checkout__right">
         <h3>
-          Subtotal({basket.length} item): <strong>${getBasketTotal(basket)}</strong>
+          Subtotal({basket.length} item):{" "}
+          <strong>${getBasketTotal(basket)}</strong>
         </h3>
         <div className="subtotal__checkbok">
           <input type="checkbox" />
           <p>This order contains a gift</p>
         </div>
-        <button>Proceed to checkout</button>
+        <button onClick={(e) => history.push("/payment")}>
+          Proceed to checkout
+        </button>
       </div>
     </div>
   );
