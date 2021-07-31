@@ -1,0 +1,45 @@
+.signIn__wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+  background-color: #fff;
+  .signin__logo {
+    width: 120px;
+    margin-top: 20px;
+    object-fit: contain;
+  }
+}
+
+.signIn {
+  border: 1px lightgray solid;
+  width: 300px;
+  height: fit-content;
+  border-radius: 5px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  h1 {
+    margin-bottom: 10px;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    input {
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    button {
+      margin: 10px 0 20px 0;
+      padding: 10px;
+      background-color: #febd69;
+      border-radius: 5px;
+    }
+  }
+}
+.signin__createAccount {
+  margin: 20px 0;
+  padding: 10px;
+  border-radius: 5px;
+}
