@@ -27,7 +27,7 @@ function Header() {
       </div>
       <div className="links">
         <div className="links__children">
-          <Link to={!user && "/login"}>
+          <Link to={!user && '/login'}>
             <div onClick={handelAthentication}>
               <p className="up">Hello {user ? user.email : "Guest"}</p>
               <p className="down">{user ? "Sign Out" : "Sign in"}</p>

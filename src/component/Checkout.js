@@ -27,7 +27,7 @@ function Checkout() {
       </div>
       <div className="checkout__right">
         <h3>
-          Subtotal({basket.length} item):{" "}
+          Subtotal({basket.length} item):
           <strong>${getBasketTotal(basket)}</strong>
         </h3>
         <div className="subtotal__checkbok">
