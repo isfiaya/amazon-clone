@@ -33,10 +33,12 @@ function Header() {
               <p className="down">{user ? "Sign Out" : "Sign in"}</p>
             </div>
           </Link>
-          <div>
-            <p className="up">Returns</p>
-            <p className="down">& Orders</p>
-          </div>
+          <Link to="orders">
+            <div>
+              <p className="up">Returns</p>
+              <p className="down">& Orders</p>
+            </div>
+          </Link>
           <div>
             <p className="up">Your</p>
             <p className="down">Prime</p>

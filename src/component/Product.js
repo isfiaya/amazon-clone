@@ -22,18 +22,24 @@ function Product({ id, title, image, price, rating }) {
 
   return (
     <div className="product">
-      <p>{title}</p>
-      <p>
-        <span>$</span> {price}
-      </p>
-      <div className="stars">
-        {[...Array(rating)].map((x, i) => (
-          <StarIcon className="star__product" key={i} />
-        ))}
+      <div className="product__info">
+        <p>{title}</p>
+        <p className="product__price">
+          <small>$</small>
+          <strong>{price}</strong>
+        </p>
+        <div className="product__rating">
+          {Array(rating)
+            .fill()
+            .map((_, i) => (
+              <p>🌟</p>
+            ))}
+        </div>
       </div>
 
-      <img src={image} alt="imgbooks" className="product__image" />
-      <button onClick={addToBasket}>Add to basket</button>
+      <img src={image} alt="" />
+
+      <button onClick={addToBasket}>Add to Basket</button>
     </div>
   );
 }
